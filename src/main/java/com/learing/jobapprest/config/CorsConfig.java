@@ -1,4 +1,3 @@
-
 package com.learing.jobapprest.config;
 
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +10,11 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:5173")
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
+                .allowedOrigins(
+                        "http://localhost:5173",
+                        "https://job-app-frontend-1.onrender.com"
+                )
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
+                .allowedHeaders("*");
     }
 }
